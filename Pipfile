@@ -4,9 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-marshmallow = "3.20.1"
+marshmallow = "*"
 importlib-metadata = "6.0.0"
 importlib-resources = "5.10.0"
+flask-marshmallow = "*"
+marshmallow-sqlalchemy = "*"
 
 [requires]
 python_full_version = "3.8.13"
