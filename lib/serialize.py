@@ -1,6 +1,6 @@
 # lib/serialize.py
-
 from pprint import pprint
+from marshmallow import Schema, fields
 
 # model
 
@@ -11,6 +11,13 @@ class Dog:
         self.tail_wagging = tail_wagging
 
 # create model instance
+class DogSchema(Schema):
+    name = fields.String()
+    breed = fields.String()
+    tail_wagging = fields.Boolean()
 
-dog = Dog(name="Snuggles", breed="Beagle", tail_wagging=True)
-print(dog)
+dogs = [Dog(name="Snuggles", breed="Beagle", tail_wagging=True),
+       Dog(name="Wags", breed="Collie", tail_wagging=False)]
+
+dictionary_list = DogSchema(many=True).dumps(dogs)
+print(dictionary_list)
